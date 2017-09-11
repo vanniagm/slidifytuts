@@ -234,5 +234,17 @@ HTML widgets are interactive graphics made for the web. These are the main libra
 <iframe src="leaflet1.html" width=100% height=100% allowtransparency="true"> </iframe>
 
 ---
+If push(user,repo) does not work
 
+>1. Create repo with same name as author('name')
+>2. Initialize git in workspace (from terminal)
+>3. Add label, commit and push
 
+```sh
+>git init
+>git remote addd origin <github-repo-url>
+>git add .
+>git commit -m 'description of changes'
+>git push origin master
+```
+>4. Important! In your github repo (remote), go to settings and enable github-pages

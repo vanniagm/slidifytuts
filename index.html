@@ -260,7 +260,25 @@ qplot(displ, hwy, data = mpg,col=drv)
 </section>
 <section class='' data-state='' id='slide-9'>
   
-  
+  <p>If push(user,repo) does not work</p>
+
+<ol class = "build incremental">
+<li>Create repo with same name as author(&#39;name&#39;)</li>
+<li>Initialize git in workspace (from terminal)</li>
+<li>Add label, commit and push</li>
+</ol>
+
+<pre><code class="sh">&gt;git init
+&gt;git remote addd origin &lt;github-repo-url&gt;
+&gt;git add .
+&gt;git commit -m &#39;description of changes&#39;
+&gt;git push origin master
+</code></pre>
+
+<ol class = "build incremental">
+<li>Important! In your github repo (remote), go to settings and enable github-pages</li>
+</ol>
+
 </section>
     </div>
   </div>
