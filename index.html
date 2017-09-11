@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cool html5 presentations using slidify</title>
+  <meta name="description" content="">
+  <meta name="author" content="Vannia Gonzalez">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="./frameworks/revealjs/css/reveal.min.css">
+  <link rel="stylesheet" href="./frameworks/revealjs/css/theme/sky.css" id="theme">
+  <link rel="stylesheet" href="./highlighters/highlight.js/css/zenburn.css" id="theme">
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->  <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class='' data-state='' id='slide-1'>
+  <h2>HTML5 ppresentations</h2>
+  <h3>Using slidify with Rmarkdown</h3>
+
+<p><br><br></p>
+
+<h5>Vannia Gonzalez</h5>
+
+</section>
+<section class='' data-state='' id='slide-2'>
+  <h2>Slidify</h2>
+  <ol>
+<li><p>Presentations from Markdown (for R)</p></li>
+<li><p>Write your slides in RMarkdown, a format that combines the core syntax of Markdown with embedded code chunks that are executed.</p></li>
+<li><p>Turn your slides into a stunning HTML5 presentation using any of the more than ten slide generation frameworks supported.</p></li>
+<li><p>Add slide classes and css to customize your presentation. Use layouts to achieve more complex designs.</p></li>
+<li><p>Share your presentation on Github or Dropbox (or Rpubs) in minutes. Slidify has it all covered from creation to publication.</p></li>
+<li><p>Useful to know as a preamble to shiny</p></li>
+</ol>
+
+</section>
+<section>
+   <section class='' data-state=''>
+    <h2>Getting started</h2>
+    
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>Install</h2>
+
+<ol class = "build incremental">
+<li>Some knowledge of R</li>
+<li>Rstudio is very helpful! (R professional software) </li>
+<li>Code chunks compatible with many languages</li>
+<li>Git installed in your OS</li>
+<li>Install slidify and slidify libraries from github</li>
+</ol>
+
+<pre><code class="r">install.packages(&#39;devtools&#39;)
+install.packages_github(&#39;slidify&#39;,&#39;ramnathv&#39;)
+install.packages(&#39;slidifyLibraries&#39;)
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>Initialize (start a demo)</h2>
+
+<pre><code class="r">library(&#39;slidify&#39;)
+author(&#39;firstdemo&#39;)
+</code></pre>
+
+<ol class = "build incremental">
+<li><p>The former creates the directory /firstdemo (in your workspace) and switches to that directory opening a file named &#39;index.html&#39; with a sample template to write over</p></li>
+<li><p>An empty git repository is also initialized and opens a deck (&#39;presentation&#39;)</p></li>
+<li><p>The .Rmd file is the only one you need to work with and where you will actually modify the deck (your presentation). </p></li>
+</ol>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <ol class = "build incremental">
+<li>The sample deck looks like this (the first lines are the YAML front matter):</li>
+</ol>
+
+<pre><code class="r">---
+title       : 
+subtitle    : 
+author      : 
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Read-And-Delete
+
+1. Edit YAML front matter
+2. Write using R Markdown
+3. Use an empty line followed by three dashes to separate slides!
+--- 
+
+## Slide 2
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <ol class = "build incremental">
+<li>Or like this (for this presentation):</li>
+</ol>
+
+<pre><code class="r">---
+title: &quot;Cool html5 presentations using slidify and ramnathv.js&quot;
+author: &quot;Vannia Gonzalez&quot;
+github:
+  repo: toolstuts
+  user: vanniagm
+hitheme: zenburn
+job: Insight Fellows 2017
+mode: selfcontained
+revealjs:
+  theme: sky
+  transition: slide
+subtitle: Insight useful tools
+framework: revealjs
+url:
+  lib: .
+widgets: mathjax
+---
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+</section>
+<section>
+   <section class='' data-state=''>
+    <h2>Generate</h2>
+    <ol class = "build incremental">
+<li>Generate your presentation by running slidify. This will create a static HTML5 presentation that you can open locally in your browser.</li>
+</ol>
+
+<pre><code class="r,evaluate=FALSE">slidify(&#39;index.Rmd&#39;)
+
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>Publish</h2>
+
+<pre><code class="r"># publish to github
+# create an empty repo on github. replace USER and REPO with your repo details
+publish(user = USER, repo = REPO) 
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>Customize</h2>
+
+<ol class = "build incremental">
+<li>Write your presentation in RMarkdown, using a newline followed by three dashes to separate slides. You can mix markdown with code chunks to create a reproducible slide deck. Look at this <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">cheatsheet</a></li>
+</ol>
+
+<pre><code>#---
+#1st slide
+#---
+#2nd slide
+# --- .class #id
+
+#---ds:soothe &amp;vertical
+#1st slide
+#***
+#2nd embedded vertical 
+# --- .class #id
+
+#--- ds:alert
+### This is an alert page
+# --- .class #id
+
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <ol class = "build incremental">
+<li><p>Slidify is designed to be MODULAR and provides a high degree of customization or you can access the defaults using slidifyDefaults(). It is possible to override options by passing it to slidify as a named list or as a &#39;yaml&#39; file (the initial settings at the beginning of the deck) .</p></li>
+<li><p>Widgets include useful tools to: 
+    - make quizzes
+    - use math formulas and
+    - utilize the bootstrap framework</p></li>
+</ol>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+</section>
+<section class='' data-state='' id='slide-5'>
+  <h2>R code</h2>
+  <ol class = "build incremental">
+<li>You can insert code  as ```{r}  code here  ```<br></li>
+</ol>
+
+<pre><code class="r">library(ggplot2)
+qplot(displ, hwy, data = mpg,col=drv)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6"></p>
+
+</section>
+<section>
+   <section class='' data-state=''>
+    <h2>HTML widgets</h2>
+    
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+</section>
+<section class='' data-state='' id='slide-7'>
+  <h2>HTML widget library</h2>
+  <p>HTML widgets are interactive graphics made for the web. These are the main libraries available:</p>
+
+<ul>
+<li><a href="https://rstudio.github.io/leaflet/">leaflet</a>: interactive maps</li>
+<li><a href="https://rstudio.github.io/dygraphs/">dygraphs</a>: charting time series data</li>
+<li><a href="http://www.htmlwidgets.org/showcase_metricsgraphics.html">metricsgraphics</a>: scatterplots, linegraphs and histograms</li>
+<li><a href="http://christophergandrud.github.io/networkD3/">networkD3</a>: network graphs</li>
+<li><a href="https://rstudio.github.io/DT/">DT</a>: print dataframes as html</li>
+<li><a href="http://www.htmlwidgets.org/showcase_threejs.html">threejs</a>: 3d scatterplots and <a href="https://www.chromeexperiments.com/globe">globes</a></li>
+<li><a href="http://rich-iannone.github.io/DiagrammeR/">DiagrammeR</a>: pretty diagrams</li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-8'>
+  <h2>leaflet</h2>
+  <iframe src="leaflet1.html" width=100% height=100% allowtransparency="true"> </iframe>
+
+</section>
+<section class='' data-state='' id='slide-9'>
+  
+  
+</section>
+    </div>
+  </div>
+</body>
+  <script src="./frameworks/revealjs/lib/js/head.min.js"></script>
+  <script src="./frameworks/revealjs/js/reveal.min.js"></script>
+  <script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    theme: Reveal.getQueryHash().theme || 'sky', 
+    transition: Reveal.getQueryHash().transition || 'default', 
+    dependencies: [
+    // Cross-browser shim that fully implements classList -
+    // https://github.com/eligrey/classList.js/
+      { src: './frameworks/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList;}},
+      // Zoom in and out with Alt+click
+      { src: './frameworks/revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Speaker notes
+      { src: './frameworks/revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Remote control your reveal.js presentation using a touch device
+      //{ src: './frameworks/revealjs/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+  });
+  </script>  <!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="./highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>
